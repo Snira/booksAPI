@@ -26,7 +26,7 @@ class BooksController extends Controller
             $bookobject = (array_merge($book, [
                 '_links' => [
                     'self' => [ 'href' => 'http://localhost:8000/api/books/'.$book['id'] ],
-                    'next' => [ 'href' => 'http://localhost:8000/api/books/'.($book['id'] +1) ],
+                    'collection' => [ 'href' => 'http://localhost:8000/api/books'],
                 ]
             ]));
             $bookarray[$i] = $bookobject;
@@ -79,7 +79,7 @@ class BooksController extends Controller
         return response(array_merge($book, [
             '_links' => [
                 'self' => [ 'href' => 'http://localhost:8000/api/books/'.$id ],
-                'next' => [ 'href' => 'http://localhost:8000/api/books/'.($id + 1) ]
+                'collection' => [ 'href' => 'http://localhost:8000/api/books']
             ]
         ]), 200);
     }
